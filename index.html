@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#ffffff">
+
+<!-- Configurazione Icona per Segnalibro/Schermata Home su iPad / Apple Web App -->
+<link rel="apple-touch-icon" sizes="180x180" href="logo-libertas.jpg">
+<link rel="icon" type="image/jpeg" href="logo-libertas.jpg">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Libertas Presenze">
+
+<title>Wheelchair Libertas 1947 - Presenze</title>
+<style>
+:root{--amaranto:#7b1835;--amaranto-dark:#5e1027;--bg:#f5f5f6;--line:#e1e1e5;--muted:#686872;--green:#dff3e5;--green-text:#17653c;--red:#fde5e7;--red-text:#a52b37;--yellow:#fff0c9;--yellow-text:#805700}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:#202027;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+header{background:#fff;color:var(--amaranto);border-bottom:4px solid var(--amaranto);padding:calc(14px + env(safe-area-inset-top)) 18px 14px}
+
+.head{max-width:1400px;margin:auto;display:flex;justify-content:center;align-items:center;gap:18px;text-align:center}
+.header-logo{height:54px;width:auto;object-fit:contain;flex-shrink:0}
+h1{font-size:clamp(1.2rem,3.5vw,2.1rem);letter-spacing:.035em;text-transform:uppercase;margin:0;font-weight:850}
+
+main{max-width:1400px;margin:16px auto;padding:0 12px 36px}
+.monthbar{display:flex;align-items:center;justify-content:center;gap:14px;margin:0 auto 14px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px}
+.monthbar button{width:44px;min-width:44px;font-size:1.25rem}
+.monthlabel{font-size:1.1rem;font-weight:750;min-width:170px;text-align:center;color:var(--amaranto)}
+button{font:inherit;font-weight:700;border:0;border-radius:10px;min-height:44px;padding:10px 15px;cursor:pointer;touch-action:manipulation}
+.navbtn{background:#f1e5e9;color:var(--amaranto)}.export{background:var(--amaranto);color:#fff}.export:active{background:var(--amaranto-dark)}
+.panel{background:#fff;border:1px solid var(--line);border-radius:14px;padding:10px;box-shadow:0 3px 12px #222208}
+.legend{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;padding:8px 4px 12px;font-size:.85rem;color:#555}
+.legend span{display:flex;align-items:center;gap:6px}.chip{display:inline-flex;align-items:center;justify-content:center;min-width:22px;height:22px;border-radius:6px;font-weight:800}
+.p{background:var(--green);color:var(--green-text)}.a{background:var(--red);color:var(--red-text)}.g{background:var(--yellow);color:var(--yellow-text)}
+.table-wrap{overflow:auto;max-height:67vh;border:1px solid var(--line);border-radius:9px;overscroll-behavior:contain}
+table{border-collapse:separate;border-spacing:0;width:max-content;min-width:100%;background:#fff}
+th,td{border-right:1px solid #ededf0;border-bottom:1px solid #e8e8ec;text-align:center;padding:5px 4px}
+thead th{position:sticky;top:0;background:#f4edf0;color:var(--amaranto);z-index:3;height:45px;font-size:.77rem;min-width:42px}
+th:first-child,td:first-child{position:sticky;left:0;text-align:left;z-index:2;background:#fff;min-width:205px;max-width:260px}
+thead th:first-child{z-index:4;background:#f4edf0}
+td:first-child{font-weight:650;padding:8px 10px;white-space:normal}
+.daynum{font-size:.9rem;font-weight:800}.weekday{font-size:.68rem;color:#777;margin-top:2px}
+.cell-btn{appearance:none;-webkit-appearance:none;display:inline-flex;align-items:center;justify-content:center;border:1px solid transparent;border-radius:8px;width:38px;height:39px;min-height:39px;padding:0;font-size:.83rem;font-weight:850;background:#f3f3f5;color:#6d6d76;touch-action:manipulation}
+.cell-btn.status-P{background:var(--green);color:var(--green-text)}.cell-btn.status-A{background:var(--red);color:var(--red-text)}.cell-btn.status-G{background:var(--yellow);color:var(--yellow-text)}.cell-btn.status-R{background:#e2e8f0;color:#1e293b}
+.bottom{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:14px}.hint{text-align:center;color:var(--muted);font-size:.82rem;line-height:1.45;margin:12px 5px 0}
+@media(max-width:600px){.header-logo{height:38px}main{padding:0 7px 28px}.panel{padding:6px}.monthlabel{min-width:145px;font-size:1rem}th:first-child,td:first-child{min-width:175px;max-width:190px}thead th{min-width:40px}.cell-btn{width:35px;height:38px}}
+@media print{body{background:#fff}header{padding:8px;border-bottom:2px solid var(--amaranto)}main{margin:0;padding:8px}.monthbar button,.bottom,.hint{display:none!important}.panel{border:0;box-shadow:none;padding:0}.table-wrap{overflow:visible;max-height:none;border:0}table{width:100%;min-width:0;font-size:7pt}thead th{position:static;font-size:6.5pt;min-width:0;padding:3px}th:first-child,td:first-child{position:static;min-width:120px;max-width:120px;padding:3px}.cell-btn{appearance:none;border:0;width:100%;height:22px;min-height:22px;font-size:7pt}}
+</style>
+</head>
+<body>
+<header>
+  <div class="head">
+    <img src="logo-libertas.jpg" alt="Logo Libertas" class="header-logo">
+    <h1>Wheelchair Libertas 1947</h1>
+    <img src="logo-libertas.jpg" alt="Logo Libertas" class="header-logo">
+  </div>
+</header>
+<main>
+  <div class="monthbar">
+    <button class="navbtn" id="prev" aria-label="Mese precedente">‹</button>
+    <div class="monthlabel" id="monthLabel"></div>
+    <button class="navbtn" id="next" aria-label="Mese successivo">›</button>
+  </div>
+  <section class="panel">
+    <div class="legend">
+      <span><i class="chip p">P</i> Presente</span>
+      <span><i class="chip a">A</i> Assente</span>
+      <span><i class="chip g">G</i> Giustificato</span>
+      <span><i class="chip" style="background:#e2e8f0;color:#1e293b">R</i> Ritardo</span>
+      <span><i class="chip">—</i> Da compilare</span>
+    </div>
+    <div class="table-wrap" id="grid"></div>
+    <div style="margin:18px 0 8px;padding:10px 6px 0;border-top:2px solid #eadde2">
+      <h2 style="margin:0;color:var(--amaranto);font-size:1.05rem;letter-spacing:.02em">Staff</h2>
+    </div>
+    <div class="table-wrap" id="staffGrid"></div>
+  </section>
+  <div class="bottom">
+    <button class="export" id="exportBtn">Esporta Excel (.xls)</button>
+    <button class="navbtn" id="exportJsonBtn">Esporta JSON</button>
+    <button class="navbtn" id="importJsonBtn">Importa JSON</button>
+    <input type="file" id="jsonFile" accept=".json,application/json" hidden>
+    <button class="navbtn" id="printBtn">Stampa / Salva PDF</button>
+  </div>
+  <p class="hint">DEVELOPED & REGISTRED BY ENRICO PREX.</p>
+</main>
+<script>
+(()=>{
+const initialPlayers = [
+{id:'0',name:'Magri Daniele'},
+{id:'4',name:'Ravicini Gianluca'},
+{id:'5',name:'Karlstrom Simon Alexander'},
+{id:'7',name:'Brandimarte Andrea'},
+{id:'10',name:'Costanzi Giulio'},
+{id:'11',name:'Belvedere Francesco'},
+{id:'13',name:'Rukavisnikovs Dmitrus'},
+{id:'14',name:'Bundzins Ralphins'},
+{id:'18',name:'Pereira CardosoFlavio'},
+{id:'20',name:'Herman Jan'},
+{id:'25',name:'Urga Elvis'},
+{id:'31',name:'Taratufolo Ferdinando Moreno'},
+{id:'34',name:'Del Bene Marco'},
+{id:'69',name:'Berrugi Federico'}
+];
+const $=id=>document.getElementById(id);
+let chosenMonth=new Date();chosenMonth.setDate(1);
+let records={};
+try{records=JSON.parse(localStorage.getItem('wl1947-presenze-v1')||'{}')}catch(e){}
+const monthKey=()=>`${chosenMonth.getFullYear()}-${String(chosenMonth.getMonth()+1).padStart(2,'0')}`;
+const days=()=>new Date(chosenMonth.getFullYear(),chosenMonth.getMonth()+1,0).getDate();
+const dayKey=d=>`${monthKey()}-${String(d).padStart(2,'0')}`;
+const statusNames={P:'Presente',A:'Assente',G:'Giustificato',R:'Ritardo'};
+const staff=[
+ {id:'staff-riva',name:'Daniele Riva',role:'Allenatore'},
+ {id:'staff-prex',name:'Enrico Prex',role:'Vice-allenatore'},
+ {id:'staff-berrugi',name:'Renato Berrugi',role:'Meccanico'},
+ {id:'staff-galigani',name:'Sandro Galigani',role:'Accompagnatore'}
+];
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function save(){localStorage.setItem('wl1947-presenze-v1',JSON.stringify(records))}
+function render(){
+ $('monthLabel').textContent=chosenMonth.toLocaleDateString('it-IT',{month:'long',year:'numeric'}).replace(/^./,c=>c.toUpperCase());
+ let h='<table><thead><tr><th>Giocatore</th>';
+ for(let d=1;d<=days();d++){const dt=new Date(chosenMonth.getFullYear(),chosenMonth.getMonth(),d);h+=`<th><div class="daynum">${d}</div><div class="weekday">${['dom','lun','mar','mer','gio','ven','sab'][dt.getDay()]}</div></th>`}
+ h+='</tr></thead><tbody>';
+ initialPlayers.forEach(p=>{
+  h+=`<tr><td>${esc(p.name)}</td>`;
+  for(let d=1;d<=days();d++){
+   const k=dayKey(d),v=records[k]?.[p.id]||'';
+   h+=`<td><button type="button" aria-label="${esc(p.name)}, giorno ${d}: ${statusNames[v]||'non registrato'}; tocca per cambiare" data-id="${p.id}" data-day="${d}" data-status="${v}" class="cell-btn ${v?'status-'+v:''}">${v||'—'}</button></td>`;
+  }
+  h+='</tr>';
+ });
+ h+='</tbody></table>';$('grid').innerHTML=h;
+ $('grid').querySelectorAll('.cell-btn').forEach(btn=>btn.addEventListener('click',()=>{
+  const k=dayKey(Number(btn.dataset.day)),id=btn.dataset.id;
+  const cycle=['','P','A','G','R'];
+  const current=btn.dataset.status||'';
+  const next=cycle[(cycle.indexOf(current)+1)%cycle.length];
+  if(!records[k])records[k]={};
+  if(next)records[k][id]=next;else delete records[k][id];
+  if(!Object.keys(records[k]).length)delete records[k];
+  save();
+  render();
+ }));
+ renderStaffGrid();
+}
+function renderStaffGrid(){
+ let h='<table><thead><tr><th>Staff</th><th>Ruolo</th>';
+ for(let d=1;d<=days();d++){const dt=new Date(chosenMonth.getFullYear(),chosenMonth.getMonth(),d);h+=`<th><div class="daynum">${d}</div><div class="weekday">${['dom','lun','mar','mer','gio','ven','sab'][dt.getDay()]}</div></th>`}
+ h+='</tr></thead><tbody>';
+ staff.forEach(p=>{
+  h+=`<tr><td>${esc(p.name)}</td><td style="text-align:left;font-size:.8rem;color:#686872">${esc(p.role)}</td>`;
+  for(let d=1;d<=days();d++){
+   const k=dayKey(d),v=records[k]?.[p.id]||'';
+   h+=`<td><button type="button" aria-label="${esc(p.name)}, giorno ${d}: ${statusNames[v]||'non registrato'}; tocca per cambiare" data-id="${p.id}" data-day="${d}" data-status="${v}" class="cell-btn ${v?'status-'+v:''}">${v||'—'}</button></td>`;
+  }
+  h+='</tr>';
+ });
+ h+='</tbody></table>';$('staffGrid').innerHTML=h;
+ $('staffGrid').querySelectorAll('.cell-btn').forEach(btn=>btn.addEventListener('click',()=>{
+  const k=dayKey(Number(btn.dataset.day)),id=btn.dataset.id;
+  const cycle=['','P','A','G','R'],current=btn.dataset.status||'',next=cycle[(cycle.indexOf(current)+1)%cycle.length];
+  if(!records[k])records[k]={};
+  if(next)records[k][id]=next;else delete records[k][id];
+  if(!Object.keys(records[k]).length)delete records[k];
+  save();render();
+ }));
+}
+$('prev').onclick=()=>{chosenMonth.setMonth(chosenMonth.getMonth()-1);render()};
+$('next').onclick=()=>{chosenMonth.setMonth(chosenMonth.getMonth()+1);render()};$('exportJsonBtn').onclick=()=>{
+ const backup={format:'wheelchair-libertas-presenze',version:1,exportedAt:new Date().toISOString(),records};
+ const blob=new Blob([JSON.stringify(backup,null,2)],{type:'application/json;charset=utf-8;'});
+ const url=URL.createObjectURL(blob),a=document.createElement('a');
+ a.href=url;a.download=`wheelchair-libertas-1947-backup-${monthKey()}.json`;
+ document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+};
+$('importJsonBtn').onclick=()=>$('jsonFile').click();$('jsonFile').addEventListener('change',async e=>{
+ const file=e.target.files?.[0];if(!file)return;
+ try{
+  const parsed=JSON.parse(await file.text());
+  const incoming=parsed&&parsed.format==='wheelchair-libertas-presenze'&&parsed.version===1?parsed.records:parsed;
+  if(!incoming||typeof incoming!=='object'||Array.isArray(incoming))throw new Error('Formato non valido');
+  for(const [date,people] of Object.entries(incoming)){
+   if(!/^\d{4}-\d{2}-\d{2}$/.test(date)||!people||typeof people!=='object'||Array.isArray(people))throw new Error('Struttura delle presenze non valida');
+   for(const status of Object.values(people))if(!['P','A','G','R'].includes(status))throw new Error('Stato non valido');
+  }
+  if(!confirm('Importare questo JSON? Le presenze attualmente salvate verranno sostituite.'))return;
+  records=incoming;save();render();alert('Importazione completata.');
+ }catch(err){alert('Impossibile importare il file JSON.');}
+ finally{e.target.value='';}
+});
+$('printBtn').onclick=()=>window.print();
+
+$('exportBtn').onclick=async()=>{
+ const choice=prompt('Come vuoi esportare le presenze?\n1 = Riepilogo mensile (giorni + foglio totali)\n2 = Riepilogo totale stagionale (mesi + totale stagione)');
+ if(choice===null)return;
+ const mode=choice.trim();
+ if(mode!=='1'&&mode!=='2'){alert('Scelta non valida. Inserisci 1 oppure 2.');return;}
+ let selectedMonth=monthKey();
+ 
+ if(mode==='1'){
+   const availableMonths=[...new Set(Object.keys(records).filter(k=>/^\d{4}-\d{2}-\d{2}$/.test(k)).map(k=>k.slice(0,7)))].sort();
+   if(!availableMonths.length){alert('Non ci sono mesi con presenze registrate.');return;}
+   
+   const overlay=document.createElement('div');
+   overlay.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:99998;display:flex;align-items:center;justify-content:center;padding:20px;';
+   
+   const modal=document.createElement('div');
+   modal.style.cssText='background:#fff;border-radius:14px;padding:20px;width:100%;max-width:320px;box-shadow:0 10px 30px rgba(0,0,0,0.3);text-align:center;font-family:inherit;';
+   
+   const title=document.createElement('h3');
+   title.textContent='Seleziona il mese';
+   title.style.cssText='margin:0 0 15px;color:var(--amaranto);font-size:1.1rem;';
+   
+   const select=document.createElement('select');
+   select.style.cssText='width:100%;padding:12px;font-size:1rem;border:1px solid var(--line);border-radius:8px;margin-bottom:20px;background:#f3f3f5;font-weight:bold;color:#202027;';
+   
+   availableMonths.forEach(m=>{
+     const [y,mo]=m.split('-');
+     const optName=new Date(y,mo-1,1).toLocaleDateString('it-IT',{month:'long',year:'numeric'});
+     const opt=document.createElement('option');
+     opt.value=m;
+     opt.textContent=optName.charAt(0).toUpperCase()+optName.slice(1);
+     if(m===monthKey()) opt.selected=true;
+     select.appendChild(opt);
+   });
+   
+   const btnContainer=document.createElement('div');
+   btnContainer.style.cssText='display:flex;gap:10px;justify-content:flex-end;';
+   
+   const cancelBtn=document.createElement('button');
+   cancelBtn.type='button';
+   cancelBtn.textContent='Annulla';
+   cancelBtn.style.cssText='background:#f1e5e9;color:var(--amaranto);flex:1;';
+   
+   const confirmBtn=document.createElement('button');
+   confirmBtn.type='button';
+   confirmBtn.textContent='Conferma';
+   confirmBtn.style.cssText='background:var(--amaranto);color:#fff;flex:1;';
+   
+   btnContainer.append(cancelBtn,confirmBtn);
+   modal.append(title,select,btnContainer);
+   overlay.appendChild(modal);
+   document.body.appendChild(overlay);
+   
+   const selected=await new Promise(resolve=>{
+     const cleanup=()=>overlay.remove();
+     confirmBtn.onclick=()=>{const val=select.value;cleanup();resolve(val);};
+     cancelBtn.onclick=()=>{cleanup();resolve(null);};
+     overlay.onclick=(e)=>{if(e.target===overlay){cleanup();resolve(null);}};
+   });
+   
+   if(!selected)return;
+   selectedMonth=selected;
+ }
+
+ const xmlEsc=v=>String(v??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&apos;');
+ 
+ let playerRows, staffRows, totalRows, fileTitle, filename;
+
+ if(mode==='1'){
+   const [yearNum,monthNum]=selectedMonth.split('-').map(Number);
+   const dObj=new Date(yearNum,monthNum-1,1);
+   const monthNameStr=dObj.toLocaleDateString('it-IT',{month:'long'});
+   const monthNameCap=monthNameStr.charAt(0).toUpperCase()+monthNameStr.slice(1);
+   
+   fileTitle=`presenze ${monthNameCap} ${yearNum}`;
+   filename=`${fileTitle}.xls`;
+
+   const n=new Date(yearNum,monthNum,0).getDate();
+   const dates=Array.from({length:n},(_,i)=>`${String(i+1).padStart(2,'0')}/${selectedMonth.slice(5)}/${yearNum}`);
+   const keys=Array.from({length:n},(_,i)=>`${selectedMonth}-${String(i+1).padStart(2,'0')}`);
+   
+   // Fogli giornalieri
+   playerRows=[
+     [fileTitle],
+     ['Giocatore',...dates],
+     ...initialPlayers.map(p=>[p.name,...keys.map(k=>statusNames[records[k]?.[p.id]||'']||'')])
+   ];
+   
+   staffRows=[
+     [fileTitle],
+     ['Staff','Ruolo',...dates],
+     ...staff.map(p=>[p.name,p.role,...keys.map(k=>statusNames[records[k]?.[p.id]||'']||'')])
+   ];
+
+   // Terzo foglio: Riepilogo Totale mensile (Giocatori + Staff uniti)
+   const monthKeys=Object.keys(records).filter(k=>k.startsWith(selectedMonth));
+   const calcMonthTotals=(id)=>{
+     let p=0,a=0,g=0,r=0;
+     monthKeys.forEach(k=>{
+       const st=records[k]?.[id];
+       if(st==='P')p++; else if(st==='A')a++; else if(st==='G')g++; else if(st==='R')r++;
+     });
+     return [p,a,g,r];
+   };
+
+   totalRows=[
+     [fileTitle],
+     ['Componente', 'Ruolo / Categoria', 'Presenze', 'Assenze', 'Giustificazioni', 'Ritardi']
+   ];
+   initialPlayers.forEach(pl=>{
+     totalRows.push([pl.name, 'Giocatore', ...calcMonthTotals(pl.id)]);
+   });
+   staff.forEach(stf=>{
+     totalRows.push([stf.name, stf.role, ...calcMonthTotals(stf.id)]);
+   });
+
+ } else {
+   const now = new Date();
+   const curYear = now.getFullYear();
+   const curMonth = now.getMonth() + 1;
+   let seasonStr = curMonth >= 7 ? `${curYear}-${curYear+1}` : `${curYear-1}-${curYear}`;
+
+   fileTitle = `Presenze stagione ${seasonStr}`;
+   filename = `${fileTitle}.xls`;
+
+   const allDates=Object.keys(records).filter(k=>/^\d{4}-\d{2}-\d{2}$/.test(k)).sort();
+   if(!allDates.length){alert('Non ci sono presenze acquisite da esportare.');return;}
+   
+   const months=[...new Set(allDates.map(k=>k.slice(0,7)))].sort();
+
+   const playerHeader=['Giocatore'];
+   months.forEach(m=>{
+     const [y,mo]=m.split('-');
+     const mStr=new Date(y,mo-1,1).toLocaleDateString('it-IT',{month:'short'});
+     playerHeader.push(`${mStr} P`, `${mStr} A`, `${mStr} G`, `${mStr} R`);
+   });
+
+   const staffHeader=['Staff', 'Ruolo'];
+   months.forEach(m=>{
+     const [y,mo]=m.split('-');
+     const mStr=new Date(y,mo-1,1).toLocaleDateString('it-IT',{month:'short'});
+     staffHeader.push(`${mStr} P`, `${mStr} A`, `${mStr} G`, `${mStr} R`);
+   });
+
+   playerRows=[[fileTitle], playerHeader];
+   initialPlayers.forEach(pl=>{
+     const row=[pl.name];
+     months.forEach(m=>{
+       const mKeys=allDates.filter(k=>k.startsWith(m));
+       let p=0,a=0,g=0,r=0;
+       mKeys.forEach(k=>{
+         const st=records[k]?.[pl.id];
+         if(st==='P')p++; else if(st==='A')a++; else if(st==='G')g++; else if(st==='R')r++;
+       });
+       row.push(p,a,g,r);
+     });
+     playerRows.push(row);
+   });
+
+   staffRows=[[fileTitle], staffHeader];
+   staff.forEach(stf=>{
+     const row=[stf.name, stf.role];
+     months.forEach(m=>{
+       const mKeys=allDates.filter(k=>k.startsWith(m));
+       let p=0,a=0,g=0,r=0;
+       mKeys.forEach(k=>{
+         const st=records[k]?.[stf.id];
+         if(st==='P')p++; else if(st==='A')a++; else if(st==='G')g++; else if(st==='R')r++;
+       });
+       row.push(p,a,g,r);
+     });
+     staffRows.push(row);
+   });
+
+   const calcAllTotals=(id)=>{
+     let p=0,a=0,g=0,r=0;
+     allDates.forEach(k=>{
+       const st=records[k]?.[id];
+       if(st==='P')p++; else if(st==='A')a++; else if(st==='G')g++; else if(st==='R')r++;
+     });
+     return [p,a,g,r];
+   };
+
+   totalRows=[
+     [fileTitle],
+     ['Componente', 'Ruolo / Categoria', 'Presenze', 'Assenze', 'Giustificazioni', 'Ritardi']
+   ];
+   initialPlayers.forEach(pl=>{
+     totalRows.push([pl.name, 'Giocatore', ...calcAllTotals(pl.id)]);
+   });
+   staff.forEach(stf=>{
+     totalRows.push([stf.name, stf.role, ...calcAllTotals(stf.id)]);
+   });
+ }
+
+ const rowsToXml=(rows)=>{
+   return rows.map((r,i)=>{
+     if(i===0){
+       return `<Row><Cell ss:StyleID="titleHeader"><Data ss:Type="String">${xmlEsc(r[0])}</Data></Cell></Row>`;
+     }
+     if(i===1){
+       return '<Row>'+r.map(v=>`<Cell ss:StyleID="header"><Data ss:Type="String">${xmlEsc(v)}</Data></Cell>`).join('')+'</Row>';
+     }
+     return '<Row>'+r.map(v=>`<Cell><Data ss:Type="${typeof v==='number'?'Number':'String'}">${xmlEsc(v)}</Data></Cell>`).join('')+'</Row>';
+   }).join('');
+ };
+
+ const sheetRows=rowsToXml(playerRows);
+ const staffSheet=rowsToXml(staffRows);
+ const totalSheet=totalRows ? rowsToXml(totalRows) : '';
+
+ let workbook=`<?xml version="1.0" encoding="UTF-8"?>
+ <?mso-application progid="Excel.Sheet"?>
+ <Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet">
+ <Styles>
+  <Style ss:ID="titleHeader">
+   <Font ss:Bold="1" ss:Color="#7B1835" ss:Size="14"/>
+  </Style>
+  <Style ss:ID="header">
+   <Font ss:Bold="1" ss:Color="#7B1835"/>
+   <Interior ss:Color="#F4EDF0" ss:Pattern="Solid"/>
+  </Style>
+ </Styles>
+ <Worksheet ss:Name="Presenze"><Table>${sheetRows}</Table><WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel"><FreezePanes/><FrozenNoSplit/><SplitHorizontal>2</SplitHorizontal><TopRowBottomPane>2</TopRowBottomPane></WorksheetOptions></Worksheet>
+ <Worksheet ss:Name="Staff"><Table>${staffSheet}</Table></Worksheet>`;
+
+ if(totalRows){
+   workbook+=`<Worksheet ss:Name="Riepilogo Totale"><Table>${totalSheet}</Table></Worksheet>`;
+ }
+ workbook+=`</Workbook>`;
+
+ const blob=new Blob([workbook],{type:'application/vnd.ms-excel;charset=utf-8;'}),url=URL.createObjectURL(blob),a=document.createElement('a');
+ a.href=url;a.download=filename;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);
+};
+
+render();
+})();
+</script>
+</body>
+</html>
